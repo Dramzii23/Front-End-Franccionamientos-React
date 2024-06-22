@@ -9,8 +9,10 @@ import {
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import LoginIcon from "@mui/icons-material/Login";
+import UsersIcon from "@mui/icons-material/People";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import FraccPage from "../pages/FraccPage";
+import { Link as RouterLink } from "react-router-dom";
 
 const SideBar = () => {
   return (
@@ -49,6 +51,15 @@ const SideBar = () => {
             </ListItemIcon>
 
             <ListItemText primary="Registrar Fraccionamiento" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem component="a" href="/getusers" disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <UsersIcon />
+            </ListItemIcon>
+
+            <ListItemText primary="Ver Usuarios" />
           </ListItemButton>
         </ListItem>
       </List>

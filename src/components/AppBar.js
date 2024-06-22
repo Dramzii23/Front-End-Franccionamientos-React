@@ -28,6 +28,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SideBar from "./SideBar";
+import { Link as RouterLink } from "react-router-dom";
 
 const AppBarComponent = () => {
   const [open, setOpen] = useState(false);
@@ -59,7 +60,10 @@ const AppBarComponent = () => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             FRACCIONAMIENTOS
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" component={RouterLink} to="/login">
+            Login
+          </Button>
+          {/* <Button color="inherit">Login</Button> */}
         </Toolbar>
       </AppBar>
     </Box>

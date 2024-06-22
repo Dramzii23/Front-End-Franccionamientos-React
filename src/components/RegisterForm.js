@@ -4,7 +4,7 @@ import { TextField, Button, Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 
-const RegisterForm = () => {
+const RegisterForm = (navigateTo) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Hook para navegar entre páginas o rutas
@@ -19,7 +19,8 @@ const RegisterForm = () => {
         { username, password, role }
       );
       alert(`Registro exitoso`);
-      navigate("/login");
+      // navigateTo = "/login";
+      navigate(0);
     } catch (error) {
       console.log(error);
       alert(`Error al registrar usuario`);

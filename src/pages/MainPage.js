@@ -11,18 +11,12 @@ const MainPage = () => {
         <SideBar />
       </Box> */}
 
-      <Box component="main" sx={{ m: "1em auto", maxWidth: "600px" }}>
+      <Box component="main" sx={{}}>
         <AppBarComponent sx={{}} />
       </Box>
-      <Box sx={{ width: "100%", maxWidth: 500 }}>
-        <Typography variant="h1">Inicio H1</Typography>
-        <Typography variant="h2">Inicio H2</Typography>
-        <Typography variant="h3">Inicio H3</Typography>
-        <Typography variant="h4">Inicio H4</Typography>
-        <Typography variant="h5">Inicio H5</Typography>
-        <Typography variant="h6">Inicio H6</Typography>
+      <Box sx={{ m: "1em auto", maxWidth: "600px" }}>
+        <Typography variant="h5">Administrador de Fraccionamientos</Typography>
 
-        <Typography variant="subtitle1">Subtitulo 1</Typography>
         <Typography variant="subtitle2">Subtitulo 2</Typography>
 
         {/* Parrafo de relleno para  probar body1 */}

@@ -34,6 +34,7 @@ import RegisterPage from "./pages/RegisterPage";
 import MainPage from "./pages/MainPage";
 import HomePage from "./pages/HomePage";
 import FraccPage from "./pages/FraccPage";
+import GetUsersPage from "./pages/GetUsersPage";
 
 // import "./App.css";
 
@@ -50,11 +51,12 @@ const App = () => {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/fracc-register" element={<FraccPage />} />
+          <Route path="/getusers" element={<GetUsersPage />} />
         </Routes>
       </Router>
     </div>

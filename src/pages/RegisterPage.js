@@ -16,7 +16,7 @@ const RegisterPage = () => {
         component="main"
         sx={{ flexgrow: 1, p: 3, m: "1em auto", maxWidth: "600px" }}
       >
-        <RegisterForm />
+        <RegisterForm navigateTo="/login" />
       </Box>
     </Box>
   );

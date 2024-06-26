@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { TextField, Button, Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CreateFraccForm = () => {
   const [nombreFracc, setNombreFracc] = useState("");
@@ -10,28 +12,79 @@ const CreateFraccForm = () => {
   const [tipoFraccionamiento, setTipoFraccionamiento] = useState("");
   const [zonasInteres, setZonasInteres] = useState("");
   const [casasHabitadas, setCasasHabitadas] = useState();
+  const [logo, setLogo] = useState(null); // null para permitir que em caso de no subir imagen, no se envie nada
 
   const navigate = useNavigate(); // Hook para navegar entre páginas o rutas
 
   const handleCreateFracc = async () => {
+    if (
+      !nombreFracc ||
+      !direccion ||
+      !NumeroCasas ||
+      !tipoFraccionamiento ||
+      !zonasInteres ||
+      !casasHabitadas
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Por favor, llena todos los campos requeridos",
+      });
+      return;
+    }
+
+    if (isNaN(NumeroCasas) || isNaN(casasHabitadas)) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Por favor, llena los campos de Numero de casas y Casas habitadas con numeros",
+      });
+    }
+
+    if (parseInt(NumeroCasas) < parseInt(casasHabitadas)) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "El numero de casas habitadas no puede ser mayor al numero de casas",
+      });
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("nombreFracc", nombreFracc);
+    formData.append("direccion", direccion);
+    formData.append("NumeroCasas", NumeroCasas);
+    formData.append("tipoFraccionamiento", tipoFraccionamiento);
+    formData.append("zonasInteres", zonasInteres);
+    formData.append("casasHabitadas", casasHabitadas);
+    if (logo) {
+      formData.append("logo", logo);
+    }
+
     try {
       const response = await axios.post(
         // Post means createUser
         `http://localhost:3001/api/fracc/`,
-        {
-          nombreFracc,
-          direccion,
-          NumeroCasas,
-          tipoFraccionamiento,
-          zonasInteres,
-          casasHabitadas,
-        }
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
       );
+
+      Swal.fire({
+        icon: "success",
+        title: "Fraccionamiento creado",
+        text: `Fraccionamiento ${nombreFracc} creado con exito`,
+      });
+
       alert("Fraccionamiento creado con exito");
       navigate("/fracc-register");
     } catch (error) {
       console.log(error);
-      alert(`Error al crear Fraccionamiento ${nombreFracc}`);
+      // alert(`Error al crear Fraccionamiento ${nombreFracc}`);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: `Error al crear Fraccionamiento ${nombreFracc}`,
+      });
     }
   };
 
@@ -123,6 +176,16 @@ const CreateFraccForm = () => {
           onChange={(e) => setCasasHabitadas(e.target.value)}
         />
         <br />
+
+        <input
+          type="file"
+          accept="image/"
+          onChange={(e) => setLogo(e.target.files[0])}
+          style={{ marginTop: "1rem, marginBottom: 1rem" }}
+        />
+
+        <br />
+
         <Button
           margin="normal"
           variant="contained"

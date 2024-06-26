@@ -6,7 +6,6 @@ import {
   ListItemButton,
   ListItemText,
   ListItemIcon,
-  Divider,
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import LoginIcon from "@mui/icons-material/Login";
@@ -15,14 +14,11 @@ import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import FraccPage from "../pages/FraccPage";
 import { Link as RouterLink } from "react-router-dom";
 
-const drawerWidth = 240;
-
-const SideBar = ({ mobileOpen, handleDrawerToggle }) => {
-  const drawer = (
-    <div style={{ height: 64 }}>
-      <Divider />
+const SideBar = () => {
+  return (
+    <Drawer variant="permanent" anchor="Right">
       <List>
-        <ListItem component="a" href="/home" disablePadding>
+        <ListItem component="a" href="/" disablePadding>
           <ListItemButton>
             <ListItemIcon>
               <HomeIcon />
@@ -67,30 +63,7 @@ const SideBar = ({ mobileOpen, handleDrawerToggle }) => {
           </ListItemButton>
         </ListItem>
       </List>
-    </div>
-  );
-
-  return (
-    <nav>
-      <Drawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        anchor="Left"
-      >
-        {drawer}
-      </Drawer>
-      <Drawer
-        variant="permanent"
-        sx={{
-          display: { xs: "none", sm: "block" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
-        }}
-        open
-      >
-        {drawer}
-      </Drawer>
-    </nav>
+    </Drawer>
   );
 };
 

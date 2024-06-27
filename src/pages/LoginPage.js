@@ -8,12 +8,12 @@ import { Box } from "@mui/material";
 const LoginPage = () => {
   return (
     <Box sx={{ m: 1 }}>
-      <Box component="main" sx={{}}>
+      {/* <Box component="main" sx={{}}>
         <AppBarComponent sx={{}} />
-      </Box>
+      </Box> */}
       <Box
         component="main"
-        sx={{ flexgrow: 1, p: 3, m: "1em auto", maxWidth: "600px" }}
+        sx={{ flexgrow: 1, p: 3, m: "1em auto", maxWidth: "700px" }}
       >
         <LoginForm />
       </Box>

@@ -8,9 +8,9 @@ import { Box } from "@mui/material";
 const RegisterPage = () => {
   return (
     <Box sx={{ m: 1 }}>
-      <Box component="main" sx={{}}>
+      {/* <Box component="main" sx={{}}>
         <AppBarComponent sx={{}} />
-      </Box>
+      </Box> */}
 
       <Box
         component="main"

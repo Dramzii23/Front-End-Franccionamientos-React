@@ -11,9 +11,9 @@ const MainPage = () => {
         <SideBar />
       </Box> */}
 
-      <Box component="main" sx={{}}>
+      {/* <Box component="main" sx={{}}>
         <AppBarComponent sx={{}} />
-      </Box>
+      </Box> */}
       <Box sx={{ m: "1em auto", maxWidth: "600px" }}>
         <Typography variant="h5">Administrador de Fraccionamientos</Typography>
 

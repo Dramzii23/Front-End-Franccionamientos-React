@@ -19,7 +19,8 @@ const drawerWidth = 240;
 
 const SideBar = ({ mobileOpen, handleDrawerToggle }) => {
   const drawer = (
-    <div style={{ height: 64 }}>
+    // <div style={{ height: 64 }}>
+    <div style={{ p: 4 }}>
       <Divider />
       <List>
         <ListItem component="a" href="/home" disablePadding>
@@ -65,6 +66,15 @@ const SideBar = ({ mobileOpen, handleDrawerToggle }) => {
             </ListItemIcon>
 
             <ListItemText primary="Ver Usuarios" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem component="a" href="/map" disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <UsersIcon />
+            </ListItemIcon>
+
+            <ListItemText primary="Mapa" />
           </ListItemButton>
         </ListItem>
       </List>

@@ -9,9 +9,9 @@ import GetUsers from "../components/GetUsers";
 const GetUsersPage = () => {
   return (
     <Box sx={{ m: 1 }}>
-      <Box component="main" sx={{}}>
+      {/* <Box component="main" sx={{}}>
         <AppBarComponent sx={{}} />
-      </Box>
+      </Box> */}
       <Box sx={{ m: "1em auto", maxWidth: "600px" }}>
         <Typography variant="body2">
           <GetUsers />

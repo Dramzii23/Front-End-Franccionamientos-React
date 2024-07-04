@@ -3,22 +3,23 @@ import RegisterForm from "../components/RegisterForm";
 import SideBar from "../components/SideBar";
 import AppBarComponent from "../components/AppBar";
 
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 const RegisterPage = () => {
   return (
-    <Box sx={{ m: 1 }}>
-      {/* <Box component="main" sx={{}}>
-        <AppBarComponent sx={{}} />
-      </Box> */}
+    <Grid container xs={12} md={12} justifyContent="center" alignItems="center">
+      <Grid item xs={12} md={10}>
+        <Box sx={{}}>
+          {/* <Box component="main" sx={{}}>
+          <AppBarComponent sx={{}} />
+        </Box> */}
 
-      <Box
-        component="main"
-        sx={{ flexgrow: 1, p: 3, m: "1em auto", maxWidth: "600px" }}
-      >
-        <RegisterForm navigateTo="/login" />
-      </Box>
-    </Box>
+          <Box component="main" sx={{ flexgrow: 1 }}>
+            <RegisterForm navigateTo="/login" />
+          </Box>
+        </Box>
+      </Grid>
+    </Grid>
   );
 };
 

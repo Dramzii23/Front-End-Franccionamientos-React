@@ -28,12 +28,12 @@ const RegisterForm = (navigateTo) => {
   };
 
   return (
-    <Box fullWidth sx={{ p: 4 }}>
-      <Box component="text" sx={{ mt: 1 }}>
+    <Box fullWidth sx={{}}>
+      <Box component="text" sx={{}}>
         <Typography variant="h6">Registro de usuario</Typography>
       </Box>
 
-      <Box component="form" sx={{ mt: 1 }}>
+      <Box component="form" sx={{}}>
         <TextField
           margin="normal"
           required
